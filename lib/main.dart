@@ -47,8 +47,8 @@ class _BudgetScreenState extends State<BudgetScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Budget Tracker'),
-        backgroundColor: Color.fromARGB(255, 11, 15, 17),
-        foregroundColor:Color.fromARGB(255, 217, 224, 228),
+        backgroundColor: Color.fromARGB(255, 217, 224, 228),
+        foregroundColor: Color.fromARGB(255, 217, 224, 228),
       ),
       body: RefreshIndicator(
         onRefresh: () async {
@@ -94,8 +94,9 @@ class _BudgetScreenState extends State<BudgetScreen> {
                       subtitle: Text(
                         '${item.category} • ${DateFormat.yMd().format(item.date)}',
                       ),
-                      trailing: Text(
-                        '₹${item.price.toStringAsFixed(2)}',
+                      trailing: item.category=='Income' ?
+                      Text(    '+₹${item.price.toStringAsFixed(2)}',
+                      ): Text(   '-₹${item.price.toStringAsFixed(2)}',
                       ),
                     ),
                   );
@@ -132,6 +133,6 @@ Color getCategoryColor(String category) {
     case 'Utilities':
       return Color.fromARGB(255, 236, 225, 234);
     default:
-      return Color.fromARGB(255, 44, 25, 131)!;
+      return Color.fromARGB(255, 44, 25, 131);
   }
 }
