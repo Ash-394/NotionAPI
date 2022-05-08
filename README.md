@@ -7,8 +7,7 @@ This is a Flutter Budget Tracker made with Notion API , which helps us in tracki
 3. Aditi Ajaykumar
 
 # Working Video
-![Budget Tracker]          // Title
-(/assets/images/screenshot.jpg)
+![Budget Tracker](/assets/images/screenshot.jpg)
 
 https://drive.google.com/file/d/1HGuwrSuAtDpb6dhD0a4W0OENMj3JnWzV/view?usp=sharing
 
