@@ -8,18 +8,18 @@ import 'package:intl/intl.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Budget Tracker',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primaryColor: Color.fromARGB(255, 155, 217, 248),
       ),
       home: BudgetScreen(),
     );
@@ -47,6 +47,8 @@ class _BudgetScreenState extends State<BudgetScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Budget Tracker'),
+        backgroundColor: Color.fromARGB(255, 11, 15, 17),
+        foregroundColor:Color.fromARGB(255, 217, 224, 228),
       ),
       body: RefreshIndicator(
         onRefresh: () async {
@@ -68,11 +70,12 @@ class _BudgetScreenState extends State<BudgetScreen> {
                   return Container(
                     margin: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
+                      color: getCategoryColor(item.category),
+                      borderRadius: BorderRadius.circular(5.0),
                       border: Border.all(
-                        width: 2.0,
+                        width: 1.0,
                         color: getCategoryColor(item.category),
+                        style: BorderStyle.none,
                       ),
                       boxShadow: const [
                         BoxShadow(
@@ -83,12 +86,16 @@ class _BudgetScreenState extends State<BudgetScreen> {
                       ],
                     ),
                     child: ListTile(
-                      title: Text(item.name),
+                      title: Text(item.name,
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.italic)),
                       subtitle: Text(
                         '${item.category} • ${DateFormat.yMd().format(item.date)}',
                       ),
                       trailing: Text(
-                        '-₹${item.price.toStringAsFixed(2)}',
+                        '₹${item.price.toStringAsFixed(2)}',
                       ),
                     ),
                   );
@@ -110,15 +117,21 @@ class _BudgetScreenState extends State<BudgetScreen> {
 
 Color getCategoryColor(String category) {
   switch (category) {
-    case 'Entertainment':
-      return Colors.deepPurple[100]!;
+    case 'Education':
+      return Color.fromARGB(255, 9, 188, 198);
     case 'Food':
-      return Colors.brown[200]!;
+      return Color.fromARGB(255, 230, 177, 20);
     case 'Personal':
-      return Colors.red[400]!;
+      return Color.fromARGB(255, 150, 252, 60);
     case 'Transportation':
-      return Colors.teal[100]!;
+      return Color.fromARGB(255, 100, 110, 109);
+    case 'Income':
+      return Color.fromARGB(255, 252, 36, 36);
+    case 'Medical':
+      return Color.fromARGB(255, 180, 43, 239);
+    case 'Utilities':
+      return Color.fromARGB(255, 236, 225, 234);
     default:
-      return Colors.amber[100]!;
+      return Color.fromARGB(255, 44, 25, 131)!;
   }
-}    
+}

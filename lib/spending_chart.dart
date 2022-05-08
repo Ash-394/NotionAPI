@@ -26,7 +26,7 @@ class SpendingChart extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.all(8.0),
       elevation: 2.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
       child: Container(
         padding: const EdgeInsets.all(16.0),
         height: 360.0,
@@ -40,9 +40,14 @@ class SpendingChart extends StatelessWidget {
                             category,
                             PieChartSectionData(
                               color: getCategoryColor(category),
-                              radius: 100.0,
-                              title: '\$${amountSpent.toStringAsFixed(2)}',
+                              radius: 135.0,
+                              title: '₹${amountSpent.toStringAsFixed(2)}',
                               value: amountSpent,
+                              titleStyle: TextStyle(
+                                fontSize: 10,
+                              ),
+                              badgePositionPercentageOffset: 0.5,
+                              titlePositionPercentageOffset: 1.12,
                             ),
                           ))
                       .values
@@ -53,8 +58,8 @@ class SpendingChart extends StatelessWidget {
             ),
             const SizedBox(height: 20.0),
             Wrap(
-              spacing: 8.0,
-              runSpacing: 8.0,
+              spacing: 10.0,
+              runSpacing: 10.0,
               children: spending.keys
                   .map((category) => _Indicator(
                         color: getCategoryColor(category),
@@ -85,14 +90,14 @@ class _Indicator extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          height: 16.0,
-          width: 16.0,
+          height: 14.0,
+          width: 14.0,
           color: color,
         ),
         const SizedBox(width: 4.0),
         Text(
           text,
-          style: const TextStyle(fontWeight: FontWeight.w500),
+          style: const TextStyle(fontWeight: FontWeight.w300),
         ),
       ],
     );
