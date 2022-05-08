@@ -47,7 +47,7 @@ class _BudgetScreenState extends State<BudgetScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Budget Tracker'),
-        backgroundColor: Color.fromARGB(255, 217, 224, 228),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         foregroundColor: Color.fromARGB(255, 217, 224, 228),
       ),
       body: RefreshIndicator(
@@ -94,10 +94,13 @@ class _BudgetScreenState extends State<BudgetScreen> {
                       subtitle: Text(
                         '${item.category} • ${DateFormat.yMd().format(item.date)}',
                       ),
-                      trailing: item.category=='Income' ?
-                      Text(    '+₹${item.price.toStringAsFixed(2)}',
-                      ): Text(   '-₹${item.price.toStringAsFixed(2)}',
-                      ),
+                      trailing: item.category == 'Income'
+                          ? Text(
+                              '+₹${item.price.toStringAsFixed(2)}',
+                            )
+                          : Text(
+                              '-₹${item.price.toStringAsFixed(2)}',
+                            ),
                     ),
                   );
                 },
