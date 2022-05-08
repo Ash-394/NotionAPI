@@ -6,8 +6,8 @@ This is a Flutter Budget Tracker made with Notion API , which helps us in tracki
 2. Ashitha P R
 3. Aditi Ajaykumar
 
-# [Working Video]
+# Working Video
 
-(https://drive.google.com/file/d/1HGuwrSuAtDpb6dhD0a4W0OENMj3JnWzV/view?usp=sharing)
+https://drive.google.com/file/d/1HGuwrSuAtDpb6dhD0a4W0OENMj3JnWzV/view?usp=sharing
 
 
